@@ -1,0 +1,15 @@
+/.idea/
+/.vscode/
+
+/coverage
+/dist/
+/vendor/
+
+*.map
+*.log
+*.swp
+*.lock
+
+._*
+.DS_Store
+Thumbs.db
