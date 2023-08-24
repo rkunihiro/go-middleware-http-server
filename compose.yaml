@@ -1,0 +1,19 @@
+services:
+  main:
+    container_name: container-main
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      LANG: C.UTF-8
+      TZ: UTC
+    networks:
+      - default
+    ports:
+      - 3000:3000
+    profiles:
+      - prod
+
+networks:
+  default:
+    name: network-default
