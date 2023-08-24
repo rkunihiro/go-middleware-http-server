@@ -1,10 +1,9 @@
 package middleware
 
 import (
+	"log/slog"
 	"net/http"
 	"time"
-
-	"golang.org/x/exp/slog"
 )
 
 func NewLoggerMiddleware(l *slog.Logger) Middleware {

@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"log/slog"
 	"net/http"
 	"os"
 	"os/signal"
@@ -9,22 +10,20 @@ import (
 	"syscall"
 	"time"
 
-	"golang.org/x/exp/slog"
-
 	"github.com/rkunihiro/go-middleware-http-server/server"
 	"github.com/rkunihiro/go-middleware-http-server/server/middleware"
 )
 
 func main() {
 	// slogの初期化
-	log := slog.New(slog.HandlerOptions{
+	log := slog.New(slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{
 		ReplaceAttr: func(_ []string, a slog.Attr) slog.Attr {
 			if a.Key == "level" {
 				a.Value = slog.StringValue(strings.ToLower(a.Value.String()))
 			}
 			return a
 		},
-	}.NewJSONHandler(os.Stdout))
+	}))
 
 	port := 3000
 	s := server.New(port)
