@@ -2,11 +2,12 @@ package server
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"net/http"
 	"time"
 
-	"github.com/rkunihiro/go-middleware-http-server/server/middleware"
+	"go-middleware-http-server/server/middleware"
 )
 
 type Server struct {
@@ -29,7 +30,7 @@ func (p *Server) Handle(pattern string, handler http.Handler) {
 
 // ListenAndServe listens on the TCP network address and then
 func (p *Server) ListenAndServe() error {
-	if err := p.srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+	if err := p.srv.ListenAndServe(); err != nil && !errors.Is(http.ErrServerClosed, err) {
 		return err
 	}
 	return nil

@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"net/http"
 
-	"github.com/rkunihiro/go-middleware-http-server/server/context"
+	"go-middleware-http-server/server/context"
 )
 
 func NewLoggerMiddleware(l *slog.Logger) Middleware {

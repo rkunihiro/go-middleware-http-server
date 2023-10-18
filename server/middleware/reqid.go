@@ -5,7 +5,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/rkunihiro/go-middleware-http-server/server/context"
+	"go-middleware-http-server/server/context"
 )
 
 func NewRequestIDMiddleware() Middleware {

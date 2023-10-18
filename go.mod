@@ -1,5 +1,5 @@
-module github.com/rkunihiro/go-middleware-http-server
+module go-middleware-http-server
 
-go 1.21.0
+go 1.21.1
 
-require github.com/google/uuid v1.3.1 // indirect
+require github.com/google/uuid v1.3.1
